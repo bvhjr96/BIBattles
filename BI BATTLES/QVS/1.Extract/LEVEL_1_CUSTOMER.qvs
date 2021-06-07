@@ -1,0 +1,21 @@
+/*
+Description: Loads Customer Information 
+*/
+
+Customer:
+LOAD distinct
+    "Customer ID",
+    "Customer Name",
+    Segment,
+    "Postal Code",
+    City,
+    State,
+    Country,
+    Region,
+    Market
+FROM [lib://BI BATTLES/Furnature Store/CUSTOMER.txt]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+Store Customer into [lib://BI BATTLES/QVD/1.Extract/LEVEL_1_CUSTOMER.qvd](qvd);
+
+Drop Table Customer;

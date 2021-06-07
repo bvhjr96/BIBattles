@@ -1,0 +1,16 @@
+/*
+Description: Loads information on returns
+*/
+
+Returns:
+LOAD distinct
+    Returned,
+    "Order ID",
+    Region
+FROM [lib://BI BATTLES/Furnature Store/RETURNS.txt]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+store Returns into [lib://BI BATTLES/QVD/1.Extract/LEVEL_1_RETURNS.qvd](qvd);
+
+Drop Table Returns;
+

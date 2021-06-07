@@ -1,0 +1,17 @@
+/*
+Description: Loads Order Information 
+*/
+
+Order_Table:
+LOAD distinct
+    "Order ID",
+    "Order Date",
+    "Ship Date",
+    "Ship Mode",
+    "Order Priority"
+FROM [lib://BI BATTLES/Furnature Store/ORDERS.txt]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+store Order_Table into [lib://BI BATTLES/QVD/1.Extract/LEVEL_1_ORDERS.qvd](qvd);
+
+Drop Table Order_Table;

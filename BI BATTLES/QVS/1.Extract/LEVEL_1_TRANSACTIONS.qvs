@@ -1,0 +1,20 @@
+/*
+Description: Loads information on Transactions
+*/
+
+Transactions:
+LOAD distinct
+    "Order ID",
+    "Customer ID",
+    "Product ID",
+    Sales,
+    Quantity,
+    Discount,
+    Profit,
+    "Shipping Cost"
+FROM [lib://BI BATTLES/Furnature Store/TRANSACTIONS.txt]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+store Transactions into [lib://BI BATTLES/QVD/1.Extract/LEVEL_1_TRANSACTIONS.qvd](qvd);
+
+Drop Table Transactions;

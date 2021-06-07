@@ -1,0 +1,15 @@
+/*
+Description: Loads information on Sales Teams 
+*/
+
+SALES_TEAM:
+LOAD Distinct
+    "Sales Rep",
+    Region
+FROM [lib://BI BATTLES/Furnature Store/SALES_TEAM.txt]
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+
+store SALES_TEAM into [lib://BI BATTLES/QVD/1.Extraact/LEVEL_1_SALES_TEAM.qvd](qvd);
+
+Drop Table SALES_TEAM;
